@@ -6,10 +6,9 @@ Currently it expects the XML files to be stored in a folder called `chat-logs`.
 
 ## Usage
 
-`pipenv run python parser.py`
+`pipenv run python parser.py --input=<input_folder> --output=<output_folder>`
 
 ### TODO
 
-* Convert to CLI tool
-* Allow folder/file path inputs
 * Add tests
+* Add more docstrings

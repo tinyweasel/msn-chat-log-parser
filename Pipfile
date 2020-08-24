@@ -8,6 +8,8 @@ pytest = "*"
 
 [packages]
 bs4 = "*"
+click = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.6"
