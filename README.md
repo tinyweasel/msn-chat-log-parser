@@ -1,14 +1,16 @@
 # MSN Chat log parser
 
-MSN Messenger allowed you to download any chat logs you had saved. Unfortunately they came tangled in a mess of XML. This parser uses Beautiful Soup to print them in a more readable manner.
-
-Currently it expects the XML files to be stored in a folder called `chat-logs`.
+This parser uses Beautiful Soup to convert MSN Messenger chat logs from XML to a more readable text file.
 
 ## Usage
 
 `pipenv run python parser.py --input=<input_folder> --output=<output_folder>`
 
-### TODO
+### To run tests
 
-* Add tests
-* Add more docstrings
+`pipenv run pytest`
+
+#### TODO
+
+* Add proper tests
+* Add better docstrings
