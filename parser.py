@@ -7,10 +7,31 @@ from bs4 import BeautifulSoup
 import click
 
 
+def format_message(message):
+    time = message.get("time")
+    date = message.get("date")
+    user = message.find("user").get("friendlyname")
+    return f"{time} {date}\n{user} - {message.get_text()}\n"
+
+
 @click.command()
-@click.option("--input", help="A folder of MSN chat logs in XML format")
-@click.option("--output", help="A folder to save the formatted chat log text files")
-def parse_chat_logs(input_folder, output_folder):
+@click.option(
+    "--input-folder",
+    prompt="Input folder",
+    help="A folder of MSN chat logs in XML format",
+)
+@click.option(
+    "--output-folder",
+    prompt="Output folder (will be created if doesn't exist)",
+    help="A folder to save the formatted chat log text files",
+)
+@click.option(
+    "--print-output/--no-print",
+    prompt="Print output to console?",
+    help="Boolean to select whether chat logs will be printed to console",
+    default=False,
+)
+def parse_chat_logs(input_folder, output_folder, print_output):
     """A function that takes a folder of chat logs and formats them for readability.
 
     Args:
@@ -36,13 +57,11 @@ def parse_chat_logs(input_folder, output_folder):
                     messages = soup.find_all("message")
 
                     for message in messages:
-                        user = message.find("user").get("friendlyname")
-                        date = message.get("date")
-                        time = message.get("time")
-                        print(f"{time} {date}\n{user} - {message.get_text()}\n")
-
-                        chat_log_output.write(f"{time} {date}\n")
-                        chat_log_output.write(f"{user} - {message.get_text()}\n\n")
+                        formatted_message = format_message(message)
+                        if print_output:
+                            print(formatted_message)
+                        chat_log_output.write(f"{formatted_message}\n")
+    click.echo("Finished parsing.")
 
 
 if __name__ == "__main__":
