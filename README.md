@@ -4,7 +4,7 @@ This parser uses Beautiful Soup to convert MSN Messenger chat logs from XML to a
 
 ## Usage
 
-`pipenv run python parser.py --input=<input_folder> --output=<output_folder>`
+`pipenv run python parser.py --input-folder=<input_folder> --output-folder=<output_folder> --print-output`
 
 ### To run tests
 
@@ -14,3 +14,4 @@ This parser uses Beautiful Soup to convert MSN Messenger chat logs from XML to a
 
 * Add proper tests
 * Add better docstrings
+* Add typings
