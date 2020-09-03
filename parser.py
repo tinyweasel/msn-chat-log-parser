@@ -3,11 +3,12 @@ Formats MSN chat logs from XML to a more readable text file
 """
 
 import os
+from typing import IO
 from bs4 import BeautifulSoup
 import click
 
 
-def format_message(message):
+def format_message(message: BeautifulSoup) -> str:
     time = message.get("time")
     date = message.get("date")
     user = message.find("user").get("friendlyname")
@@ -31,12 +32,13 @@ def format_message(message):
     help="Boolean to select whether chat logs will be printed to console",
     default=False,
 )
-def parse_chat_logs(input_folder, output_folder, print_output):
+def parse_chat_logs(input_folder: str, output_folder: str, print_output: bool) -> IO[str]:
     """A function that takes a folder of chat logs and formats them for readability.
 
     Args:
       input_folder: A folder containing XML MSN chat logs.
       output_folder: A folder to contain the output text files. Will be created if not exists.
+      print_output: A boolean to set whether to print output to console.
 
     Returns:
       A folder of formatted chat logs.

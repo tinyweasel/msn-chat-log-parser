@@ -1,5 +1,10 @@
+# VS Code
 .history
 
-# not committing the secret chat logs
+# Python
+__pycache__
+.__pytest_cache
+
+# secret chat logs
 chat-logs
 output-files
