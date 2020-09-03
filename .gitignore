@@ -2,7 +2,7 @@
 .history
 
 # Python
-__pycache__
+**/__pycache__
 .__pytest_cache
 
 # secret chat logs
