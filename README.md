@@ -20,3 +20,5 @@ If the input and output folder and print boolean aren't set, it will prompt the 
 #### TODO
 
 * Create functions to read/write to file
+
+* Update to use [typer|https://github.com/tiangolo/typer] instead of click
